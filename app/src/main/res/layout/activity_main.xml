@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/calculator_background"
     android:orientation="vertical"
+    android:id="@+id/main"
     android:padding="16dp">
 
     <!--  Biểu thức  -->
@@ -15,7 +16,7 @@
         android:alpha="0.7"
         android:gravity="end|bottom"
         android:text=""
-        android:textColor="@color/display_text"
+        android:textColor="@color/formula_text"
         android:textSize="24sp" />
 
     <!--    Kết quả -->
@@ -25,7 +26,7 @@
         android:layout_weight="2"
         android:gravity="end|bottom"
         android:text="@string/_0"
-        android:textColor="@color/display_text"
+        android:textColor="@color/result_text"
         android:textSize="48sp" />
 
     <!--  Bàn phím  -->

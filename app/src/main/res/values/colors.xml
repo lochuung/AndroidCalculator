@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="calculator_background">#FF202020</color>
-    <color name="number_button_bg">#FF323232</color>
-    <color name="operator_button_bg">#FF3B3B3B</color>
-    <color name="equal_button_bg">#FF4CC2FF</color>
-    <color name="button_text">#FFFFFFFF</color>
-    <color name="display_text">#FFFFFFFF</color>
+    <color name="calculator_background">#eef4f9</color>
+    <color name="number_button_bg">#ffffff</color>
+    <color name="operator_button_bg">#f7f9fc</color>
+    <color name="equal_button_bg">#0067c0</color>
+    <color name="button_text">#1b1b1b</color>
+    <color name="equal_button_text">#ffffff</color>
+    <color name="result_text">#000000</color>
+    <color name="formula_text">#606264</color>
 </resources>
