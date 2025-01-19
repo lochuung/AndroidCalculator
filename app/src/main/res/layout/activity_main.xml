@@ -38,49 +38,43 @@
 
         <Button
             android:id="@+id/percent"
-            style="@style/CalculatorButton"
-            android:text="%" />
+            style="@style/CalculatorButton.Operator"
+            android:text="@string/percent" />
 
         <Button
             android:id="@+id/ce"
-            style="@style/CalculatorButton"
-            android:text="CE" />
-
+            style="@style/CalculatorButton.Operator"
+            android:text="@string/ce" />
 
         <Button
             android:id="@+id/c"
-            style="@style/CalculatorButton"
-            android:text="C" />
-
+            style="@style/CalculatorButton.Operator"
+            android:text="@string/c" />
 
         <Button
             android:id="@+id/backspace"
-            style="@style/CalculatorButton"
-            android:text="<=" />
-
+            style="@style/CalculatorButton.Operator"
+            android:text="@string/backspace" />
 
         <Button
             android:id="@+id/inverse"
-            style="@style/CalculatorButton"
-            android:text="1/x" />
-
+            style="@style/CalculatorButton.Operator"
+            android:text="@string/inverse" />
 
         <Button
             android:id="@+id/square"
-            style="@style/CalculatorButton"
-            android:text="x^2" />
+            style="@style/CalculatorButton.Operator"
+            android:text="@string/square" />
 
         <Button
             android:id="@+id/square_root"
-            style="@style/CalculatorButton"
-            android:text="√" />
-
+            style="@style/CalculatorButton.Operator"
+            android:text="@string/square_root" />
 
         <Button
             android:id="@+id/divide"
-            style="@style/CalculatorButton"
-            android:text="/" />
-
+            style="@style/CalculatorButton.Operator"
+            android:text="@string/divide" />
 
         <Button
             android:id="@+id/btn_7"
@@ -145,7 +139,7 @@
         <Button
             android:id="@+id/plus_minus"
             style="@style/CalculatorButton.Number"
-            android:text="+-" />
+            android:text="@string/plus_minus" />
 
         <Button
             android:id="@+id/btn_0"
@@ -161,7 +155,6 @@
             android:id="@+id/equal"
             style="@style/CalculatorButton.Equal"
             android:text="@string/equal" />
-
 
     </GridLayout>
 
