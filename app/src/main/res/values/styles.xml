@@ -13,15 +13,15 @@
     </style>
 
     <style name="CalculatorButton.Number">
-        <item name="android:background">@color/number_button_bg</item>
+        <item name="android:background">@drawable/number_button_background</item>
     </style>
 
     <style name="CalculatorButton.Operator">
-        <item name="android:background">@color/operator_button_bg</item>
+        <item name="android:background">@drawable/operator_button_background</item>
     </style>
 
     <style name="CalculatorButton.Equal">
-        <item name="android:background">@color/equal_button_bg</item>
+        <item name="android:background">@drawable/equal_button_background</item>
         <item name="android:textColor">@color/equal_button_text</item>
     </style>
 </resources>
