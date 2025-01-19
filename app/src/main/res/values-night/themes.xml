@@ -3,5 +3,8 @@
     <style name="Base.Theme.Calculator" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="materialButtonStyle">@style/Widget.Calculator.Button</item>
+        <item name="android:buttonStyle">@style/Widget.Calculator.Button</item>
     </style>
+    <style name="Theme.Calculator" parent="Base.Theme.Calculator" />
 </resources>

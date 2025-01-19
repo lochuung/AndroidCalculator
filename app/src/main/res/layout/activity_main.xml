@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/calculator_background"
     android:orientation="vertical"
-    android:id="@+id/main"
     android:padding="16dp">
 
     <!--  Biểu thức  -->
     <TextView
+        android:id="@+id/formula_display"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -21,6 +21,7 @@
 
     <!--    Kết quả -->
     <TextView
+        android:id="@+id/result_display"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
