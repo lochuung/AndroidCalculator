@@ -1,26 +1,116 @@
 package vn.huuloc.calculator;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import vn.huuloc.calculator.enums.Operation;
 
 public class MainActivity extends AppCompatActivity {
 
-    @SuppressLint("MissingInflatedId")
+    private TextView resultTextView;
+    private TextView formulaTextView;
+
+    private Calculator calculator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        resultTextView = findViewById(R.id.result_display);
+        formulaTextView = findViewById(R.id.formula_display);
+        calculator = new Calculator();
+
+        setUpNumberButtons();
+        setUpOperatorButtons();
+        setUpSpecialButtons();
+    }
+
+    private void setUpNumberButtons() {
+        int[] numberIds = {
+                R.id.btn_0, R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4,
+                R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9,
+                R.id.dot
+        };
+
+        for (int id : numberIds) {
+            findViewById(id).setOnClickListener(v -> {
+                String digit = ((Button) v).getText().toString();
+                calculator.appendNumber(digit);
+                updateResultTextView();
+            });
+        }
+    }
+
+    private void setUpOperatorButtons() {
+        int[] operatorIds = {
+                R.id.plus, R.id.minus, R.id.multiply, R.id.divide
+        };
+
+        for (int id : operatorIds) {
+            findViewById(id).setOnClickListener(v -> {
+                String operator = ((Button) v).getText().toString();
+                calculator.setOperation(Operation.fromSymbol(operator));
+                updateFormulaTextView();
+                updateResultTextView();
+            });
+        }
+
+        findViewById(R.id.equal).setOnClickListener(v -> {
+            if (!calculator.getStoredNumber().isEmpty() &&
+                    calculator.getCurrentOperation() != Operation.NONE) {
+                calculator.calculate();
+
+                updateResultTextView();
+
+                String completeFormula = String.format("%s %s %s",
+                        calculator.getStoredNumber(),
+                        calculator.getCurrentOperation().getSymbol(),
+                        calculator.getCurrentNumber());
+
+                formulaTextView.setText(completeFormula);
+            }
         });
     }
+
+    private void setUpSpecialButtons() {
+        findViewById(R.id.c).setOnClickListener(v -> {
+            calculator.clear();
+            updateResultTextView();
+            updateFormulaTextView();
+        });
+
+        findViewById(R.id.ce).setOnClickListener(v -> {
+            calculator.clearEntry();
+            updateResultTextView();
+        });
+
+        findViewById(R.id.backspace).setOnClickListener(v -> {
+            calculator.backspace();
+            updateResultTextView();
+        });
+    }
+
+    private void updateFormulaTextView() {
+        if (!calculator.getStoredNumber().isEmpty() &&
+                calculator.getCurrentOperation() != Operation.NONE) {
+
+            String completeFormula = String.format("%s %s",
+                    calculator.getStoredNumber(),
+                    calculator.getCurrentOperation().getSymbol());
+
+            formulaTextView.setText(completeFormula);
+            return;
+        }
+
+        formulaTextView.setText("");
+    }
+
+    private void updateResultTextView() {
+        resultTextView.setText(calculator.getCurrentNumber());
+    }
+
 }
