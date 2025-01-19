@@ -21,6 +21,9 @@ public class Calculator {
             currentNumber = CalculatorUtils.ERROR_INVALID_INPUT;
             return;
         }
+        if (!storedNumber.isEmpty() && !CalculatorUtils.isValidNumber(storedNumber)) {
+            storedNumber = "";
+        }
         if (!storedNumber.isEmpty()) {
             calculate();
         }

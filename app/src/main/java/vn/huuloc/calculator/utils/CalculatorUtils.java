@@ -12,11 +12,12 @@ public class CalculatorUtils {
             return ERROR_INVALID_INPUT;
         }
 
-        String stringResult = String.valueOf(result);
-        if (stringResult.endsWith(".0")) {
-            return stringResult.substring(0, stringResult.length() - 2);
+        String stringResult = result.stripTrailingZeros().toPlainString();
+        if ("0".equals(stringResult)) {
+            return stringResult;
         }
-        return stringResult;
+
+        return stringResult.endsWith(".") ? stringResult.substring(0, stringResult.length() - 1) : stringResult;
     }
 
     public static boolean isValidNumber(String number) {
