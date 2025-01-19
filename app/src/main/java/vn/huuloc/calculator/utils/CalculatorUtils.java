@@ -2,10 +2,15 @@ package vn.huuloc.calculator.utils;
 
 import java.math.BigDecimal;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class CalculatorUtils {
     public static final String ERROR_DIVISION_BY_ZERO = "Cannot divide by zero";
     public static final String ERROR_INVALID_INPUT = "Invalid input";
     public static final String ERROR_NEGATIVE_ROOT = "Invalid square root";
+
+    public static final int MAX_SCALE = 10;
 
     public static String formatResult(BigDecimal result) {
         if (result == null) {

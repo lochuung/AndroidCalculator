@@ -92,6 +92,28 @@ public class MainActivity extends AppCompatActivity {
             calculator.backspace();
             updateResultTextView();
         });
+
+        findViewById(R.id.square).setOnClickListener(v -> {
+            calculator.square();
+            updateResultTextView();
+        });
+
+        findViewById(R.id.square_root).setOnClickListener(v -> {
+            calculator.squareRoot();
+            updateResultTextView();
+        });
+
+        findViewById(R.id.inverse).setOnClickListener(v -> {
+            calculator.inverse();
+            updateResultTextView();
+        });
+
+        findViewById(R.id.percent).setOnClickListener(v -> {
+            calculator.percentage();
+            updateResultTextView();
+        });
+
+
     }
 
     private void updateFormulaTextView() {
