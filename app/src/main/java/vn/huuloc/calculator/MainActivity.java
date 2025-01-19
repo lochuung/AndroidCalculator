@@ -62,16 +62,16 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.equal).setOnClickListener(v -> {
             if (!calculator.getStoredNumber().isEmpty() &&
                     calculator.getCurrentOperation() != Operation.NONE) {
-                calculator.calculate();
 
-                updateResultTextView();
-
-                String completeFormula = String.format("%s %s %s",
+                String completeFormula = String.format("%s %s %s = ",
                         calculator.getStoredNumber(),
                         calculator.getCurrentOperation().getSymbol(),
                         calculator.getCurrentNumber());
 
                 formulaTextView.setText(completeFormula);
+
+                calculator.calculate();
+                updateResultTextView();
             }
         });
     }
